@@ -1,78 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-</head>
-<body>
-    <section class="menu-bar">
-        <img class="menu-bar__logo" />
-    </section>
-    <header class="header">
-        <div class="header__avatar-section">
-            <img class="header__image"/>
-            <div class="header__about">
-                <h2 class="header__title">Bessie Coleman</h2>
-                <p class="header__description">Civil Aviator</p>
-                <button class="header__button_edit">
-                    <img class="header__icon_edit" />
-                    Edit Profile
+    <head>
+        <meta name="charset" content="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Interactive Social Media Profile App" />
+        <meta name="author" content="Richard Duong" />
+        <meta name="keywords" content="HTML, CSS, Responsive" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <title>Spots Media Profile</title>
+        <link rel="stylesheet" type="text/css" href="./vendor/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="./pages/index.css" />
+    </head>
+    <body>
+        <div class="page">
+            <header class="header">
+              <img class="header__logo" src="./images/Logo.svg"/>
+            </header>
+            <main class="content">
+              <section class="profile">
+                <img class="profile__image" src="./images/avatar.jpg" alt="Profile picture of Bessie Coleman"/>
+                <div class="profile__about">
+                    <h1 class="profile__title">Bessie Coleman</h1>
+                    <p class="profile__description">Civil Aviator</p>
+                    <button class="profile__edit-btn">
+                        <img class="profile__edit-icon" src="./images/edit-icon.svg" alt="Pencil Icon" />
+                        Edit Profile
+                    </button>
+                </div>
+                <button class="profile__post-btn">
+                    <img class="profile__post-icon" src="./images/post-icon.svg" alt="Plus Icon"  />
+                    New Post
                 </button>
-            </div>
-            <button class="header__button_post">
-                <img class="header__icon_post" />
-                New Post
-            </button>
+              </section>
+                <ul class="content__cards">
+                    <li class="content__card">
+                        <img class="content__card_image" src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="" />
+                        <div class="content__card_footer">
+                            <p class="content__card_description"></p>
+                            <button class="content__button_card"></button>
+                        </div>
+                    </li>
+                    <li class="content__card">
+                        <img class="content__card_image" src="./images/2-photo-by-ceiline-from-pexels.jpg" alt="" />
+                        <div class="content__card_footer">
+                            <p class="content__card_description"></p>
+                            <button class="content__button_card"></button>
+                        </div>
+                    </li>
+                    <li class="content__card">
+                        <img class="content__card_image" src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="" />
+                        <div class="content__card_footer">
+                            <p class="content__card_description"></p>
+                            <button class="content__button_card"></button>
+                        </div>
+                    </li>
+                    <li class="content__card">
+                        <img class="content__card_image" src="./images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="" />
+                        <div class="content__card_footer">
+                            <p class="content__card_description"></p>
+                            <button class="content__button_card"></button>
+                        </div>
+                    </li>
+                    <li class="content__card">
+                        <img class="content__card_image" src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="" />
+                        <div class="content__card_footer">
+                            <p class="content__card_description"></p>
+                            <button class="content__button_card"></button>
+                        </div>
+                    </li>
+                    <li class="content__card">
+                        <img class="content__card_image" src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg" alt=""  />
+                        <div class="content__card_footer">
+                            <p class="content__card_description"></p>
+                            <button class="content__button_card"></button>
+                        </div>
+                    </li>
+                </ul>
+              </main>
+            <footer class="footer">
+                <p class="footer__copyright">2025 &copy; Spots</p>
+            </footer>
         </div>
-        <button class="header__button"></button>
-    </header>
-    <main class="main">
-        <ul class="main__cards">
-            <li class="main__card">
-                <img class="main__card_image" />
-                <div class="main__card_footer">
-                    <p class="main__card_description"></p>
-                    <button class="main__button_card"></button>
-                </div>
-            </li>
-            <li class="main__card">
-                <img class="main__card_image" />
-                <div class="main__card_footer">
-                    <p class="main__card_description"></p>
-                    <button class="main__button_card"></button>
-                </div>
-            </li>
-            <li class="main__card">
-                <img class="main__card_image" />
-                <div class="main__card_footer">
-                    <p class="main__card_description"></p>
-                    <button class="main__button_card"></button>
-                </div>
-            </li>
-            <li class="main__card">
-                <img class="main__card_image" />
-                <div class="main__card_footer">
-                    <p class="main__card_description"></p>
-                    <button class="main__button_card"></button>
-                </div>
-            </li>
-            <li class="main__card">
-                <img class="main__card_image" />
-                <div class="main__card_footer">
-                    <p class="main__card_description"></p>
-                    <button class="main__button_card"></button>
-                </div>
-            </li>
-            <li class="main__card">
-                <img class="main__card_image" />
-                <div class="main__card_footer">
-                    <p class="main__card_description"></p>
-                    <button class="main__button_card"></button>
-                </div>
-            </li>
-        </ul>
-    </main>
-    <footer class="footer">
-        <p class="footer__copyright">2025 &copy; Spots</p>
-    </footer>
-</body>
+    </body>
 </html>

@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../vendor/fonts/Inter\,Noto_Serif\,Poppins/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+@import url(../vendor/normalize.css);
+@import url(../blocks/page.css);
+@import url(../blocks/header.css);
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height: calc(100% - 2.8rem);
+    background-color: #FCF5E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+
+}
+
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    height: 1.63rem;
+    width: 100%;
+}
+
+.profile {
+  display: flex;
+  padding: 34px 0 20px 0;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.profile__image {
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.profile__about {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__title {
+  margin: 0 0 12px 0;
+}
+
+.profile__edit-btn {
+  margin-top: auto;
+}
+
+.profile__post-btn {
+  margin-left: auto;
+}
+
+.content__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.content__card_image {
+    width: 413px;
+    height: 413px;
+
+}
+
+.footer {
+    background-color: #FCF5E5;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(33, 33, 33, 0.4);
+}
+
