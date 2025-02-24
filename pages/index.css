@@ -1,11 +1,16 @@
+@import url(../vendor/normalize.css);
+@import url(../blocks/page.css);
+@import url(../blocks/header.css);
+@import url(../blocks/content.css);
+@import url(../blocks/profile.css);
+@import url(../blocks/footer.css);
+
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   src: url("../vendor/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
 }
-
-@import url(../vendor/normalize.css);
 
 *, html, body {
   margin: 0;
@@ -17,12 +22,6 @@ html, body {
   height: 100%;
   background-color: #FCF5E5;
 }
-
-@import url(../blocks/page.css);
-@import url(../blocks/header.css);
-@import url(../blocks/content.css);
-@import url(../blocks/profile.css);
-@import url(../blocks/footer.css);
 
 
 @media screen and (max-width: 627px) {
