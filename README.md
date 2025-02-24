@@ -1,21 +1,36 @@
 # Project 3: Spots
 
-### Overview  
+An social profile site for image sharing.
 
-* Intro  
-* Figma  
-* Images  
+## Description
+
+Main features are : responsive css layout for multiple screen sizes, clean theme for posting images, and clean design for the user. Section for image description and a like button for other users to express. In addition no horizontal bar *thunbs up*.
+
+### Tech Stack & Featrues
+
+* HTML
+* CSS
+* Responsive Design
+* Figma
+* Github pages
+* VS Code
+
+* Header : Site logo.
+* Profile section : User Profile Picture, User Name, User description, User option to edit profile after. 
+* Content : Post button to post new images, designated area to group pictures, image description bar, image like button. 
+* Footer : Copyright Title.
   
-**Intro**
+**Deployment**  
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
+![Link to project on github pages](https://richardthienduong.github.io/se_project_spots/)
   
 **Images**  
   
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+![2500px view](./images/sprint_3_width_2500.PNG)
+![1440px view](./images/sprint_3_width_1440.PNG)
+![1280px view](./images/sprint_3_width_1280.PNG)
+![780px view](./images/sprint_3_width_780.PNG)
+![480px view](./images/sprint_3_width_480.PNG)
+![320px view](./images/sprint_3_width_320.PNG)
   
-Good luck and have fun!
+Thank you for reading! 
