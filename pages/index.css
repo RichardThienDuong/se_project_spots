@@ -2,176 +2,26 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url("../vendor/fonts/Inter\,Noto_Serif\,Poppins/Poppins/Poppins-Regular.ttf") format("truetype");
+  src: url("../vendor/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+*, html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #FCF5E5;
 }
 
 @import url(../vendor/normalize.css);
 @import url(../blocks/page.css);
 @import url(../blocks/header.css);
-
-*, html, body {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
-    background-color: #FCF5E5;
-}
-
-.page {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-}
-
-.content {
-  width: calc(100% - 60px);
-  max-width: 1280px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header {
-    background-color: #fff;
-    text-align: center;
-    padding: 10px 0 10px 0;
-    height: 1.63rem;
-    width: 100%;
-}
-
-.profile {
-  display: flex;
-  padding: 34px 0 20px 0;
-  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
-  min-width: 288px;
-  width: 100%;
-}
-
-.profile__image {
-  margin-right: 20px;
-  border-radius: 8px;
-  width: 190px;
-  height: 190px;
-}
-
-.profile__about {
-  display: flex;
-  flex-direction: column;
-  max-width: 420px;
-  width: 35vw;
-}
-
-.profile__title {
-  margin: 0 0 12px;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.profile__description {
-  flex-shrink: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.profile__edit-btn {
-  margin: auto auto 0 0;
-  background-color: #FCF5E5;
-  border: none;
-}
-
-.profile__post-btn {
-  margin: auto 0 0 auto;
-  background-color: #212121;
-  color: #fff;
-  border-radius: 8px;
-  border: none;
-  min-width: 9.35rem;
-  height: 52px;
-}
-
-.content__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 413px);
-    width: 100%;
-    justify-content: center;
-    gap: 20px;
-    list-style-type: none;
-    margin: 20px 0;
-    border-bottom: 1px solid rgba(33, 33, 33, 0.4);
-}
-
-.content__card {
-  margin-bottom: 20px;
-  width: 413px;
-}
-
-.content__card_image {
-    width: 413px;
-    height: 413px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.content__card_footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-}
-
-.content__card_description {
-  font-size: 20px;
-  line-height: 24px;
-  width: 350px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.content__card_btn {
-  width: 23px;
-  height: 23px;
-  background-color: transparent;
-  border: none;
-  opacity: 0.4;
-}
-
-.content__card_icon {
-  fill: gray;
-}
-
-.footer {
-    background-color: #FCF5E5;
-    width: 100%;
-    height: 136px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer__copyright {
-  font-size: 16px;
-  color: #212121B2;
-}
+@import url(../blocks/content.css);
+@import url(../blocks/profile.css);
+@import url(../blocks/footer.css);
 
 @media screen and (max-width: 627px) {
   .profile {
