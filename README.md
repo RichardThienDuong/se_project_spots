@@ -23,6 +23,7 @@ Main features are : responsive css layout for multiple screen sizes, clean theme
 **Deployment**  
   
 ![Link to project on github pages](https://richardthienduong.github.io/se_project_spots/)
+![Link to Video Presentation](https://drive.google.com/file/d/1jDHrJG-Hlok4Z-BTEOfH0FVjEuwILPOm/view?usp=sharing)
   
 **Images**  
   
