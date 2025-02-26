@@ -8,6 +8,9 @@
 }
 
 .footer__copyright {
-font-size: 16px;
-color: #212121B2;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 16px;
+  color: #212121B2;
+  margin: 0;
 }
