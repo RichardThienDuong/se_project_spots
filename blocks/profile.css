@@ -3,7 +3,6 @@
   display: flex;
   padding: 34px 0 20px 0;
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
-  min-width: 288px;
   width: 100%;
 }
 
@@ -21,7 +20,7 @@
   width: 35vw;
 }
 
-.profile__title {
+.profile__title { /* no max-width needed for text overflow */
   color: #212121;
   margin: 0 0 12px;
   font-weight: 500;
@@ -30,14 +29,13 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.profile__description {
+.profile__description { /* no max-width needed for text overflow */
   margin: 0;
   color: rgba(33, 33, 33, 0.7);
-  flex-shrink: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -60,6 +58,7 @@
 }
 
 .profile__edit-btn:hover {
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -76,6 +75,7 @@
 }
 
 .profile__post-btn:hover {
+  opacity: 0.8;
   cursor: pointer;
 }
 

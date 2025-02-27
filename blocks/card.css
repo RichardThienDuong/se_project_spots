@@ -1,5 +1,4 @@
 .card {
-  margin-bottom: 20px;
   width: 413px;
 }
 
@@ -33,6 +32,11 @@
   height: 23px;
   border: none;
   opacity: 0.4;
+  padding: 0;
+  background: transparent; /* I've been asked to remove and to add this back so idk */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card__like-btn:hover {
