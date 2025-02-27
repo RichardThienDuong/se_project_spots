@@ -1,4 +1,5 @@
 .content {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   width: calc(100% - 60px);
   max-width: 1280px;
   padding: 0;

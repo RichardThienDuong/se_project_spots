@@ -1,3 +1,8 @@
+.cards__section {
+  width: 100%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
