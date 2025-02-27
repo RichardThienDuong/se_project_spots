@@ -21,7 +21,8 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;
-  width: 350px;
+  color: #212121;
+  max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -32,11 +33,10 @@
   height: 23px;
   border: none;
   opacity: 0.4;
-  cursor: pointer;
 }
 
-.card__icon-btn {
-  fill: gray;
+.card__like-btn:hover {
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -49,5 +49,10 @@
   .card__image {
     width: 288px;
     height: 288px;
+  }
+
+  .card__description {
+    font-size: 16px;
+    line-height: 1;
   }
 }
