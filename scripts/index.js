@@ -24,3 +24,20 @@
           link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
       }
  ];
+
+ /* Edit Profile */
+ let profileModal = document.querySelector('.modal');
+ let profileEditButton = document.querySelector('.profile__edit-btn');
+let profileCloseButton = document.querySelector('.modal__close-btn');
+
+function modalOpen() {
+  profileModal.classList.add('modal_opened');
+}
+
+function modalClose() {
+  profileModal.classList.remove('modal_opened');
+}
+
+profileEditButton.addEventListener('click', modalOpen);
+
+profileCloseButton.addEventListener('click', modalClose);
