@@ -75,6 +75,7 @@
   background-color: #212121;
   color: #FCF5E5;
   border-radius: 8px;
+  cursor: pointer;
  }
 
  @media screen and (max-width: 627px) {
