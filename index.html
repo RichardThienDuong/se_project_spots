@@ -14,7 +14,7 @@
   </head>
   <body class="page">
       <header class="header">
-        <img class="header__logo" src="./images/Logo.svg" />
+        <img class="header__logo" src="./images/Logo.svg" alt="Spots Logo"/>
       </header>
       <main class="content">
         <section class="profile">
@@ -44,8 +44,8 @@
             New Post
           </button>
         </section>
-        <section class="cards__section">
-        <ul class="cards">
+        <section class="cards">
+        <ul class="cards__section">
           <template id="card-template">
             <li class="card">
               <img
@@ -65,110 +65,6 @@
               </div>
             </li>
           </template>
-          <!-- <li class="card">
-            <img
-              class="card__image"
-              src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="Val Thorens"
-            />
-            <div class="card__footer">
-              <p class="card__description">Val Thorens</p>
-              <button class="card__like-btn" type="button">
-                <img
-                  class="card__icon-btn"
-                  src="./images/like-icon.svg"
-                  alt="Heart Icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/2-photo-by-ceiline-from-pexels.jpg"
-              alt="Restaurant terrance"
-            />
-            <div class="card__footer">
-              <p class="card__description">Restaurant terrance</p>
-              <button class="card__like-btn" type="button">
-                <img
-                  class="card__icon-btn"
-                  src="./images/like-icon.svg"
-                  alt="Heart Icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-              alt="An outdoor cafe"
-            />
-            <div class="card__footer">
-              <p class="card__description">An outdoor cafe</p>
-              <button class="card__like-btn" type="button">
-                <img
-                  class="card__icon-btn"
-                  src="./images/like-icon.svg"
-                  alt="Heart Icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-              alt="A very long bridge, over the forest trees"
-            />
-            <div class="card__footer">
-              <p class="card__description">
-                A very long bridge, over the forest trees
-              </p>
-              <button class="card__like-btn" type="button">
-                <img
-                  class="card__icon-btn"
-                  src="./images/like-icon.svg"
-                  alt="Heart Icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-              alt="Tunnel with morning light"
-            />
-            <div class="card__footer">
-              <p class="card__description">Tunnel with morning light</p>
-              <button class="card__like-btn" type="button">
-                <img
-                  class="card__icon-btn"
-                  src="./images/like-icon.svg"
-                  alt="Heart Icon"
-                />
-              </button>
-            </div>
-          </li>
-          <li class="card">
-            <img
-              class="card__image"
-              src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="Mountain house"
-            />
-            <div class="card__footer">
-              <p class="card__description">Mountain house</p>
-              <button class="card__like-btn" type="button">
-                <img
-                  class="card__icon-btn"
-                  src="./images/like-icon.svg"
-                  alt="Heart Icon"
-                />
-              </button>
-            </div>
-          </li> -->
         </ul>
       </section>
       </main>
@@ -177,7 +73,7 @@
       </footer>
       <div class="modal">
         <div class="modal__container">
-          <button class="modal__close-btn" type="submit">
+          <button class="modal__close-btn" type="button">
             <img
               class="modal__close-icon"
               src="./images/close-icon.svg"
@@ -185,7 +81,7 @@
             />
           </button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" class="modal__form">
+          <form name="edit-profile" id="modal-form" class="modal__form">
             <label class="modal__label" for="profile_name">
               Name
               <input class="modal__input" type="text" name="name" id="profile_name" placeholder="Type your name" required />

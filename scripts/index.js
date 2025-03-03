@@ -10,28 +10,28 @@ const profileInputName = document.querySelector('#profile_name');
 const profileInputDescription = document.querySelector('#profile_description');
 
 /* Edit Profile Form + Save Button*/
-const profileForm = document.querySelector('.modal__form');
+const profileForm = document.forms['modal-form'];
 const profileSaveButton = document.querySelector('.modal__submit-btn');
 
 /* Open Edit Profile && Update inputs / Close Edit Profile */
-function modalOpen() {
+function openModal() {
   profileInputName.value = profileName.textContent;
   profileInputDescription.value = profileDescription.textContent;
   profileModal.classList.add('modal_opened');
 };
-function modalClose() { profileModal.classList.remove('modal_opened'); };
+function closeModal() { profileModal.classList.remove('modal_opened'); };
 
 /* Save Edit Profile */
-function modalSave(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = profileInputName.value;
   profileDescription.textContent = profileInputDescription.value;
-  modalClose();
+  closeModal();
 };
 
 /* Card Template */
 const cardTemplate = document.querySelector('#card-template');
-const cardsList = document.querySelector('.cards');
+const cardsList = document.querySelector('.cards__section');
 const initialCards = [
   {
       name: "Val Thorens",
@@ -76,7 +76,7 @@ for (let i = 0; i < initialCards.length; i++) {
   cardsList.append(cardElement);
 }
 
-profileEditButton.addEventListener('click', modalOpen); // Edit Profile Open Button
-profileCloseButton.addEventListener('click', modalClose); // Edit Profile Close Button
-profileForm.addEventListener('submit', modalSave); // Edit Profile Save Button
+profileEditButton.addEventListener('click', openModal); // Edit Profile Open Button
+profileCloseButton.addEventListener('click', closeModal); // Edit Profile Close Button
+profileForm.addEventListener('submit', handleProfileFormSubmit); // Edit Profile Save Button
 

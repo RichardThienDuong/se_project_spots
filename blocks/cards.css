@@ -1,9 +1,9 @@
-.cards__section {
+.cards {
   width: 100%;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-.cards {
+.cards__section {
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   width: 100%;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 627px) {
-  .cards {
+  .cards__section {
     grid-template-columns: repeat(auto-fit, 288px);
     gap: 20px;
     padding: 20px 0 20px;
