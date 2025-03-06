@@ -1,5 +1,6 @@
 .card {
   width: 413px;
+  position: relative;
 }
 
 .card__image {
@@ -7,6 +8,23 @@
   height: 413px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+.card__delete-btn {
+  position: absolute;
+  top: 10px;
+  left: 371px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  padding: 0;
+  background: transparent url("../images/delete-btn.svg") center no-repeat;
+  background-size: contain;
+}
+
+.card__delete-btn:hover {
+  cursor: pointer;
+  background: url("../images/delete-btn-hover.svg") center no-repeat;
 }
 
 .card__footer {
@@ -33,10 +51,19 @@
   border: none;
   opacity: 0.4;
   padding: 0;
-  background: transparent; /* I've been asked to remove and to add this back so idk */
+  background: transparent url("../images/like-icon.svg") center no-repeat;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.card__like-btn_liked {
+  background-image: url(../images/like-btn-liked.svg);
+  opacity: 1;
+}
+
+.card__like-btn_liked:hover {
+  background-image: url(../images/like-btn-liked-hover.svg);
 }
 
 .card__like-btn:hover {

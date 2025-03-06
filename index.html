@@ -53,15 +53,10 @@
                 src=""
                 alt=""
               />
+              <button class="card__delete-btn" type="button"></button>
               <div class="card__footer">
                 <p class="card__description"></p>
-                <button class="card__like-btn" type="button">
-                  <img
-                    class="card__icon-btn"
-                    src="./images/like-icon.svg"
-                    alt="Heart Icon"
-                  />
-                </button>
+                <button class="card__like-btn" type="button"></button>
               </div>
             </li>
           </template>
@@ -71,15 +66,9 @@
       <footer class="footer">
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
-      <div class="modal">
+      <div class="modal" id="profile-modal">
         <div class="modal__container">
-          <button class="modal__close-btn" type="button">
-            <img
-              class="modal__close-icon"
-              src="./images/close-icon.svg"
-              alt="Close Icon"
-            />
-          </button>
+          <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" id="modal-form" class="modal__form">
             <label class="modal__label" for="profile_name">
@@ -92,6 +81,30 @@
             </label>
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
+        </div>
+      </div>
+      <div class="modal" id="post-modal">
+        <div class="modal__container">
+          <button class="modal__close-btn" type="button"></button>
+          <h2 class="modal__title">New post</h2>
+          <form name="post" id="modal-form" class="modal__form">
+            <label class="modal__label" for="post_link">
+              Image link
+              <input class="modal__input" type="url" name="link" id="post_link" placeholder="Paste a link to the picture" required />
+            </label>
+            <label class="modal__label" for="post_name">
+              Caption
+              <input class="modal__input" type="text" name="name" id="post_name" placeholder="Type your caption" required/>
+            </label>
+            <button class="modal__submit-btn" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="picture-modal">
+        <div class="modal__container modal__container_type_preview">
+          <button class="modal__close-btn modal__close-btn_type_preview" type="button"></button>
+          <img class="modal__preview_image" src="" alt="" />
+          <p class="modal__preview_name"></p>
         </div>
       </div>
       <script src="./scripts/index.js" defer></script>
