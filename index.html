@@ -70,7 +70,7 @@
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" id="modal-form" class="modal__form">
+          <form name="edit-profile" id="profile-form" class="modal__form">
             <label class="modal__label" for="profile_name">
               Name
               <input class="modal__input" type="text" name="name" id="profile_name" placeholder="Type your name" required />
@@ -87,7 +87,7 @@
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">New post</h2>
-          <form name="post" id="modal-form" class="modal__form">
+          <form name="post" id="post-form" class="modal__form">
             <label class="modal__label" for="post_link">
               Image link
               <input class="modal__input" type="url" name="link" id="post_link" placeholder="Paste a link to the picture" required />
@@ -103,8 +103,8 @@
       <div class="modal" id="picture-modal">
         <div class="modal__container modal__container_type_preview">
           <button class="modal__close-btn modal__close-btn_type_preview" type="button"></button>
-          <img class="modal__preview_image" src="" alt="" />
-          <p class="modal__preview_name"></p>
+          <img class="modal__preview-image" src="" alt="" />
+          <p class="modal__preview-name"></p>
         </div>
       </div>
       <script src="./scripts/index.js" defer></script>

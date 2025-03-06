@@ -41,7 +41,7 @@ const profileInputName = document.querySelector('#profile_name');
 const profileInputDescription = document.querySelector('#profile_description');
 
 /* Edit Profile Form + Save Button*/
-const profileForm = document.forms['modal-form'];
+const profileForm = document.forms['profile-form'];
 const profileSaveButton = document.querySelector('.modal__submit-btn');
 
 /* Picture Modal */
@@ -79,8 +79,13 @@ function getCardElement(data) {
   return cardElement;
 };
 
+function renderCard(data, method = "append") {
+  const cardElement = getCardElement(data);
+  cardsList[method](cardElement);
+}
+
 initialCards.forEach((data) => {
-  cardsList.append(getCardElement(data));
+  renderCard(data);
 });
 
 /* Open Edit Profile && Update inputs / Close Edit Profile */
@@ -101,7 +106,7 @@ const postModalCloseButton = postModal.querySelector('.modal__close-btn');
 const postModalOpenButton = document.querySelector('.profile__post-btn');
 
 /* New Post Form */
-const postForm = postModal.querySelector('.modal__form');
+const postForm = document.forms['post-form'];
 const postInputLink = postForm.querySelector('#post_link');
 const postInputName = postForm.querySelector('#post_name');
 const postSubmitButton = postForm.querySelector('.modal__submit-btn');
@@ -132,9 +137,16 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 postModalOpenButton.addEventListener('click', () => {
   openModal(postModal);
 });
+
+const closeButtons = document.querySelectorAll('.modal__close-btn');
+closeButtons.forEach((button) => {
+  const popupModal = button.closest('.modal');
+  button.addEventListener('click', () => {
+    closeModal(popupModal);
+  });
+});
 postModalCloseButton.addEventListener('click', () => {
   closeModal(postModal);
-  postForm.reset(); // Clear form input when backing out
 });
 postForm.addEventListener('submit', handlePostFormSubmit);
 
