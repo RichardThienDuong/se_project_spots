@@ -85,6 +85,7 @@
   .card__description {
     font-size: 16px;
     line-height: 1;
+    max-width: 265px;
   }
 
   .card__delete-btn {
