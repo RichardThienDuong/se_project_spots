@@ -70,16 +70,18 @@
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form name="edit-profile" id="profile-form" class="modal__form">
+          <form name="edit-profile" id="profile-form" class="modal__form" novalidate>
             <label class="modal__label" for="profile_name">
               Name
-              <input class="modal__input" type="text" name="name" id="profile_name" placeholder="Type your name" required />
+              <input class="modal__input" type="text" name="name" id="profile_name" placeholder="Type your name" minlength="2" maxlength="40" required />
+              <span id="profile_name-error" class="modal__error"></span>
             </label>
             <label class="modal__label" for="profile_description">
               Description
-              <input class="modal__input" type="text" name="description" id="profile_description" placeholder="Describe yourself" required/>
+              <input class="modal__input" type="text" name="description" id="profile_description" placeholder="Describe yourself" minlength="2" maxlength="40" required/>
+              <span id="profile_description-error" class="modal__error"></span>
             </label>
-            <button class="modal__submit-btn" type="submit">Save</button>
+            <button class="modal__submit-btn" type="submit" >Save</button>
           </form>
         </div>
       </div>
@@ -87,16 +89,18 @@
         <div class="modal__container">
           <button class="modal__close-btn" type="button"></button>
           <h2 class="modal__title">New post</h2>
-          <form name="post" id="post-form" class="modal__form">
+          <form name="post" id="post-form" class="modal__form" novalidate>
             <label class="modal__label" for="post_link">
               Image link
               <input class="modal__input" type="url" name="link" id="post_link" placeholder="Paste a link to the picture" required />
+              <span id="post_link-error" class="modal__error"></span>
             </label>
             <label class="modal__label" for="post_name">
               Caption
-              <input class="modal__input" type="text" name="name" id="post_name" placeholder="Type your caption" required/>
+              <input class="modal__input" type="text" name="name" id="post_name" placeholder="Type your caption" minlength="2" maxlength="30" required/>
+              <span id="post_name-error" class="modal__error"></span>
             </label>
-            <button class="modal__submit-btn" type="submit">Save</button>
+            <button class="modal__submit-btn" type="submit" >Save</button>
           </form>
         </div>
       </div>
@@ -108,5 +112,6 @@
         </div>
       </div>
       <script src="./scripts/index.js" defer></script>
+      <script src="./scripts/validation.js" defer></script>
   </body>
 </html>

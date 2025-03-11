@@ -121,14 +121,16 @@ function handlePostFormSubmit(evt) {
     name: postInputName.value,
   };
   renderCard(inputValues, "prepend");
-  closeModal(postModal);
+  disableButton(postSubmitButton, settings);
   postForm.reset();
+  closeModal(postModal);
 };
 
 /* Event Listeners: Edit Profile, New Post */
 profileEditButton.addEventListener('click', () => {
   profileInputName.value = profileName.textContent;
   profileInputDescription.value = profileDescription.textContent;
+  resetValidation(profileModal, [profileInputName, profileInputDescription]);
   openModal(profileModal);
 });
 profileForm.addEventListener('submit', handleProfileFormSubmit);
