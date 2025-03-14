@@ -36,23 +36,24 @@ const domSections = {
 const  domRefs = {
    cardTemplate: document.querySelector('#card-template'),
    cardsList: document.querySelector('.cards__section'),
-   profileEditButton: document.querySelector('.profile__edit-btn'),
-   profileCloseButton: document.querySelector('.modal__close-btn'),
+   profileEditOpenButton: document.querySelector('.profile__edit-btn'),
+   profileCloseButton: domSections.profileModal.querySelector('.modal__close-btn'),
    profileName: document.querySelector('.profile__title'),
    profileDescription: document.querySelector('.profile__description'),
    profileInputName: document.querySelector('#profile_name'),
    profileInputDescription: document.querySelector('#profile_description'),
-   profileSaveButton: document.querySelector('.modal__submit-btn'),
+   profileSaveButton: domSections.profileModal.querySelector('.modal__submit-btn'),
    pictureModalImage: domSections.pictureModal.querySelector('.modal__preview-image'),
    pictureModalName: domSections.pictureModal.querySelector('.modal__preview-name'),
+   pictureCloseButton: domSections.pictureModal.querySelector('.modal__close-btn'),
    postModalCloseButton: domSections.postModal.querySelector('.modal__close-btn'),
    postModalOpenButton: document.querySelector('.profile__post-btn'),
    postInputLink: domSections.postForm.querySelector('#post_link'),
    postInputName: domSections.postForm.querySelector('#post_name'),
-   postSubmitButton: domSections.postForm.querySelector('.modal__submit-btn'),
-   closeButtons: document.querySelectorAll('.modal__close-btn')
+   postSubmitButton: domSections.postForm.querySelector('.modal__submit-btn')
 };
 
+/* Cards  */
 function getCardElement(data, domRefs, domSections) {
   const cardElement = domRefs.cardTemplate.content.querySelector('.card').cloneNode(true);
   const cardDescriptionEl = cardElement.querySelector('.card__description');
@@ -77,6 +78,7 @@ function getCardElement(data, domRefs, domSections) {
     domRefs.pictureModalImage.alt = cardImageEl.alt;
     domRefs.pictureModalName.textContent = cardImageEl.alt;
     openModal(domSections.pictureModal);
+    eventMgr.addEventListeners(eventMgr["picture-modal"]);
   })
 
   return cardElement;
@@ -91,62 +93,97 @@ initialCards.forEach((data) => {
   renderCard(data, undefined, domRefs, domSections);
 });
 
+
+/* Modals / Forms  */
 function openModal(modal) { modal.classList.add('modal_opened'); };
 function closeModal(modal) { modal.classList.remove('modal_opened'); };
 
-function handleProfileFormSubmit(evt, domRefs, domSections) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   domRefs.profileName.textContent = domRefs.profileInputName.value;
   domRefs.profileDescription.textContent = domRefs.profileInputDescription.value;
+  eventMgr.removeEventListeners(eventMgr["profile-modal"]);
   closeModal(domSections.profileModal);
 };
 
-function handlePostFormSubmit(evt, domRefs, domSections) {
+function handlePostFormSubmit(evt) {
   evt.preventDefault();
   const inputValues = {
     link: domRefs.postInputLink.value,
     name: domRefs.postInputName.value,
   };
-  renderCard(inputValues, "prepend");
+
+  renderCard(inputValues, "prepend", domRefs, domSections);
   disableButton(domRefs.postSubmitButton, settings);
   domSections.postForm.reset();
+  eventMgr.removeEventListeners(eventMgr["post-modal"]);
   closeModal(domSections.postModal);
-};
+}
 
-domRefs.profileEditButton.addEventListener('click', () => {
-  domRefs.profileInputName.value = domRefs.profileName.textContent;
-  domRefs.profileInputDescription.value = domRefs.profileDescription.textContent;
-  resetValidation(domSections.profileModal, [domRefs.profileInputName, domRefs.profileInputDescription], settings);
-  openModal(domSections.profileModal);
-});
-
-domSections.profileForm.addEventListener('submit', handleProfileFormSubmit);
-
-domRefs.postModalOpenButton.addEventListener('click', () => {
-  openModal(domSections.postModal);
-});
-
-
-domRefs.closeButtons.forEach((button) => {
-  const popupModal = button.closest('.modal');
-  button.addEventListener('click', () => {
+function handleCloseButton(evt) {
+  const popupModal = evt.target.closest(".modal");
+  if (popupModal.classList.contains('modal_opened')) {
+    eventMgr.removeEventListeners(eventMgr[popupModal.id]);
     closeModal(popupModal);
-  });
-});
-domSections.postForm.addEventListener('submit', handlePostFormSubmit);
+  }
+  }
 
-const handleClickClose =  (evt) => {
+function handleClickClose(evt) {
   if (evt.target.classList.contains('modal_opened')) {
-    // evt.target.removeEventListener('click', handleClickClose);
+    eventMgr.removeEventListeners(eventMgr[evt.target.id]);
     closeModal(evt.target);
   }
 }
 
-const enableCloseModal = () => {
-  const modalList = document.querySelectorAll('.modal');
-  modalList.forEach((modal) => {
-    modal.addEventListener('click', handleClickClose);
-})
+function handleCloseKey(evt) {
+  const popupModal = document.querySelector('.modal_opened');
+  if (evt.key === 'Escape') {
+    eventMgr.removeEventListeners(eventMgr[popupModal.id]);
+    closeModal(popupModal);
+  }
 }
 
-enableCloseModal();
+const eventMgr = {
+  "profile-modal": [
+    [handleProfileFormSubmit, 'submit', domSections.profileForm],
+    [handleCloseButton, 'click', domRefs.profileCloseButton],
+    [handleClickClose, 'click', domSections.profileModal],
+    [handleCloseKey, 'keydown', document]
+  ],
+  "post-modal": [
+    [handlePostFormSubmit, 'submit', domSections.postForm],
+    [handleCloseButton, 'click', domRefs.postModalCloseButton],
+    [handleClickClose, 'click', domSections.postModal],
+    [handleCloseKey, 'keydown', document]
+  ],
+  "picture-modal": [
+    [handleCloseButton, 'click', domRefs.pictureCloseButton],
+    [handleClickClose, 'click', domSections.pictureModal],
+    [handleCloseKey, 'keydown', document]
+  ],
+  addEventListeners(formId) {
+    formId.forEach(([handler, eventType, element]) => {
+      element.addEventListener(eventType, handler);
+    })
+  },
+  removeEventListeners(formId) {
+    formId.forEach(([handler, eventType, element]) => {
+      element.removeEventListener(eventType, handler);
+    })
+  }
+}
+
+/* Main Page Listeners  */
+domRefs.postModalOpenButton.addEventListener('click', () => {
+  openModal(domSections.postModal);
+  eventMgr.addEventListeners(eventMgr["post-modal"]);
+});
+
+domRefs.profileEditOpenButton.addEventListener('click', () => {
+  domRefs.profileInputName.value = domRefs.profileName.textContent;
+  domRefs.profileInputDescription.value = domRefs.profileDescription.textContent;
+
+  resetValidation(domSections.profileModal, [domRefs.profileInputName, domRefs.profileInputDescription], settings);
+  openModal(domSections.profileModal);
+  eventMgr.addEventListeners(eventMgr["profile-modal"]);
+});
