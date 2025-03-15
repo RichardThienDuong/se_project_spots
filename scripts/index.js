@@ -78,7 +78,6 @@ function getCardElement(data, domRefs, domSections) {
     domRefs.pictureModalImage.alt = cardImageEl.alt;
     domRefs.pictureModalName.textContent = cardImageEl.alt;
     openModal(domSections.pictureModal);
-    eventMgr.addEventListeners(eventMgr["picture-modal"]);
   })
 
   return cardElement;
@@ -95,14 +94,19 @@ initialCards.forEach((data) => {
 
 
 /* Modals / Forms  */
-function openModal(modal) { modal.classList.add('modal_opened'); };
-function closeModal(modal) { modal.classList.remove('modal_opened'); };
+function openModal(modal) {
+  modal.classList.add('modal_opened');
+  eventMgr.addEventListeners(eventMgr[modal.id]);
+};
+function closeModal(modal) {
+  modal.classList.remove('modal_opened');
+  eventMgr.removeEventListeners(eventMgr[modal.id]);
+};
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   domRefs.profileName.textContent = domRefs.profileInputName.value;
   domRefs.profileDescription.textContent = domRefs.profileInputDescription.value;
-  eventMgr.removeEventListeners(eventMgr["profile-modal"]);
   closeModal(domSections.profileModal);
 };
 
@@ -112,25 +116,21 @@ function handlePostFormSubmit(evt) {
     link: domRefs.postInputLink.value,
     name: domRefs.postInputName.value,
   };
-
   renderCard(inputValues, "prepend", domRefs, domSections);
   disableButton(domRefs.postSubmitButton, settings);
   domSections.postForm.reset();
-  eventMgr.removeEventListeners(eventMgr["post-modal"]);
   closeModal(domSections.postModal);
 }
 
 function handleCloseButton(evt) {
   const popupModal = evt.target.closest(".modal");
   if (popupModal.classList.contains('modal_opened')) {
-    eventMgr.removeEventListeners(eventMgr[popupModal.id]);
     closeModal(popupModal);
   }
   }
 
 function handleClickClose(evt) {
   if (evt.target.classList.contains('modal_opened')) {
-    eventMgr.removeEventListeners(eventMgr[evt.target.id]);
     closeModal(evt.target);
   }
 }
@@ -138,7 +138,6 @@ function handleClickClose(evt) {
 function handleCloseKey(evt) {
   const popupModal = document.querySelector('.modal_opened');
   if (evt.key === 'Escape') {
-    eventMgr.removeEventListeners(eventMgr[popupModal.id]);
     closeModal(popupModal);
   }
 }
@@ -161,13 +160,13 @@ const eventMgr = {
     [handleClickClose, 'click', domSections.pictureModal],
     [handleCloseKey, 'keydown', document]
   ],
-  addEventListeners(formId) {
-    formId.forEach(([handler, eventType, element]) => {
+  addEventListeners(listeners) {
+    listeners.forEach(([handler, eventType, element]) => {
       element.addEventListener(eventType, handler);
     })
   },
-  removeEventListeners(formId) {
-    formId.forEach(([handler, eventType, element]) => {
+  removeEventListeners(listeners) {
+    listeners.forEach(([handler, eventType, element]) => {
       element.removeEventListener(eventType, handler);
     })
   }
@@ -176,7 +175,6 @@ const eventMgr = {
 /* Main Page Listeners  */
 domRefs.postModalOpenButton.addEventListener('click', () => {
   openModal(domSections.postModal);
-  eventMgr.addEventListeners(eventMgr["post-modal"]);
 });
 
 domRefs.profileEditOpenButton.addEventListener('click', () => {
@@ -185,5 +183,4 @@ domRefs.profileEditOpenButton.addEventListener('click', () => {
 
   resetValidation(domSections.profileModal, [domRefs.profileInputName, domRefs.profileInputDescription], settings);
   openModal(domSections.profileModal);
-  eventMgr.addEventListeners(eventMgr["profile-modal"]);
 });
