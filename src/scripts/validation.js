@@ -1,4 +1,4 @@
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
@@ -79,11 +79,11 @@ const setEventListeners = (formElement, config) => {
 };
 
 /* To run all forms for SetEventListener function */
-const enableValidation = (config) => {
+ const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector) ;
   formList.forEach((formElement) => {
     setEventListeners(formElement, config);
   });
 };
 
-enableValidation(settings);
+export { settings, enableValidation, resetValidation, disableButton };

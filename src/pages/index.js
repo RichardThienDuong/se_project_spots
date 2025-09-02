@@ -1,3 +1,6 @@
+import { enableValidation, settings, resetValidation, disableButton } from "../scripts/validation.js";
+import "./index.css";
+
 const initialCards = [
   {
       name: "Val Thorens",
@@ -184,3 +187,5 @@ domRefs.profileEditOpenButton.addEventListener('click', () => {
   resetValidation(domSections.profileModal, [domRefs.profileInputName, domRefs.profileInputDescription], settings);
   openModal(domSections.profileModal);
 });
+
+enableValidation(settings);
