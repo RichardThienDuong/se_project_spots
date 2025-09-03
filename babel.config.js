@@ -15,6 +15,6 @@ const presets = [
   ],
 ];
 
-module.exports = {
+export default {
   presets
 };

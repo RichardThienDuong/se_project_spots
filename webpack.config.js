@@ -1,9 +1,14 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import path from "path";
+import { fileURLToPath } from "url";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-module.exports = {
+// Fix for __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   entry: {
     main: "./src/pages/index.js",
   },
@@ -12,7 +17,6 @@ module.exports = {
     filename: "main.js",
     publicPath: "/",
   },
-
   mode: "development",
   devtool: "inline-source-map",
   stats: "errors-only",
@@ -29,24 +33,24 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        // loader: "babel-loader",
         exclude: "/node_modules/",
+        use : 'babel-loader'
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-            },
-          },
-          "postcss-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        // [
+        //   MiniCssExtractPlugin.loader,
+        //   {
+        //     loader: "css-loader",
+        //     options: { importLoaders: 1 },
+        //   },
+        //   "postcss-loader",
+        // ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|webp|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|jpeg|webp|gif|woff2?|eot|ttf|otf)$/,
         type: "asset/resource",
       },
     ],
