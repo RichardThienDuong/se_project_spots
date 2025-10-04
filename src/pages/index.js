@@ -1,5 +1,15 @@
 import { enableValidation, settings, resetValidation, disableButton } from "../scripts/validation.js";
 import "./index.css";
+import logo from "../images/Logo.svg";
+import avatar from "../images/avatar.jpg";
+import editIcon from "../images/edit-icon.svg";
+import postIcon from "../images/post-icon.svg";
+
+document.getElementById('logo').src = logo;
+document.getElementById('avatar').src = avatar;
+document.getElementById('editIcon').src = editIcon;
+document.getElementById('postIcon').src = postIcon;
+
 
 const initialCards = [
   {
