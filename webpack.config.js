@@ -4,7 +4,6 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-// Fix for __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -33,21 +32,12 @@ export default {
     rules: [
       {
         test: /\.js$/,
-        // loader: "babel-loader",
-        exclude: "/node_modules/",
+        exclude: /node_modules/,
         use : 'babel-loader'
       },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
-        // [
-        //   MiniCssExtractPlugin.loader,
-        //   {
-        //     loader: "css-loader",
-        //     options: { importLoaders: 1 },
-        //   },
-        //   "postcss-loader",
-        // ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|webp|gif|woff2?|eot|ttf|otf)$/,

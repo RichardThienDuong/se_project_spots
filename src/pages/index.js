@@ -50,33 +50,6 @@ const  domRefs = {
    deleteCancelButton: domSections.deleteModal.querySelector('.modal__cancel-btn'),
 };
 
-// const initialCards = [
-//   {
-//       name: "Val Thorens",
-//       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-//   {
-//       name: "Restaurant terrace",
-//       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-//   },
-//   {
-//       name: "An outdoor cafe",
-//       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-//   },
-//   {
-//       name: "A very long bridge, over the forest and through the trees",
-//       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-//   },
-//   {
-//       name: "Tunnel with morning light",
-//       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-//   },
-//   {
-//       name: "Mountain house",
-//       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-//   }
-// ];
-
 /* API Initialized */
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -215,7 +188,6 @@ function handleDeleteButton(cardElement, cardId, evt) {
   selectedCard = cardElement;
   selectedCardId = cardId;
   evt.preventDefault();
-  console.log(evt.target);
   setButtonText(evt.target, true, "Delete", "Deleting...");
   api.deleteCard(cardId)
     .then(() => {
@@ -232,15 +204,13 @@ function handleDeleteButton(cardElement, cardId, evt) {
 function handleLikeButton(evt, cardId) {
   if (evt.target.classList.contains('card__like-btn_liked')){
     api.handleLike(cardId, true)
-      .then((likedCard) => {
-        console.log(likedCard);
+      .then(() => {
         evt.target.classList.toggle('card__like-btn_liked');
       })
       .catch((err) => { console.error(`Error: ${err}`); });
   } else {
     api.handleLike(cardId, false)
-      .then((likedCard) => {
-        console.log(likedCard);
+      .then(() => {
         evt.target.classList.toggle('card__like-btn_liked');
       })
       .catch((err) => { console.error(`Error: ${err}`); });
