@@ -215,7 +215,8 @@ function handleDeleteButton(cardElement, cardId, evt) {
   selectedCard = cardElement;
   selectedCardId = cardId;
   evt.preventDefault();
-  setButtonText(evt.submitter, true, "Delete", "Deleting...");
+  console.log(evt.target);
+  setButtonText(evt.target, true, "Delete", "Deleting...");
   api.deleteCard(cardId)
     .then(() => {
       cardElement.remove();
@@ -224,7 +225,7 @@ function handleDeleteButton(cardElement, cardId, evt) {
     })
     .catch((err) => { console.error(`Error: ${err}`); })
     .finally(() => {
-      setButtonText(evt.submitter, false, "Delete", "Deleting...");
+      setButtonText(evt.target, false, "Delete", "Deleting...");
     });
 };
 
