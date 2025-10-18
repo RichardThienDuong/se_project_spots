@@ -135,11 +135,13 @@
         </div>
       </div>
        <div class="modal" id="delete-modal">
-        <div class="modal__container">
-          <button class="modal__close-btn" type="button"></button>
-          <h2 class="modal__title">Are you sure you want to delete this image?</h2>
-          <button class="modal__delete-btn" type="button" >Delete</button>
-          <button class="modal__cancel-btn" type="button" >Cancel</button>
+        <div class="modal__container modal__delete_container">
+          <button class="modal__close-btn modal__delete_btn_outside" type="button"></button>
+          <h2 class="modal__title modal__delete_title">Are you sure you want to delete this image?</h2>
+          <div class="modal__mini_container">
+            <button class="modal__delete-btn" type="button" >Delete</button>
+            <button class="modal__cancel-btn" type="button" >Cancel</button>
+          </div>
         </div>
       </div>
   </body>
