@@ -24,7 +24,7 @@ export function handleSubmit(request, evt, loadingText = 'Saving...') {
 
   request()
     .then(() => {
-      evt.target.reset();
+      if (evt.target.tagName === 'FORM') {evt.target.reset(); }
     })
     .catch((err) => {
       console.error(err);
