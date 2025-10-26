@@ -23,7 +23,6 @@ Main features are : responsive css layout for multiple screen sizes, clean theme
 **Deployment**
 
 ![Link to project on github pages](https://richardthienduong.github.io/se_project_spots/)
-![Link to Video Presentation](https://drive.google.com/file/d/1jDHrJG-Hlok4Z-BTEOfH0FVjEuwILPOm/view?usp=sharing)
 
 **Images**
 
@@ -33,5 +32,13 @@ Main features are : responsive css layout for multiple screen sizes, clean theme
 ![780px view](./images/sprint_3_width_780.PNG)
 ![480px view](./images/sprint_3_width_480.PNG)
 ![320px view](./images/sprint_3_width_320.PNG)
+
+## Project Pitch Videos
+
+Check out these videos, where I describe my project
+and some challenges I faced while building it:
+
+- [First Video : Spots Stage 2](https://drive.google.com/file/d/1jDHrJG-Hlok4Z-BTEOfH0FVjEuwILPOm/view?usp=sharing)
+- [Second Video : Spots Final Stage](https://drive.google.com/file/d/1vb4Pbs_G67t3KczcIerLxoFjJCspYkYQ/view?usp=sharing)
 
 Thank you for reading!
